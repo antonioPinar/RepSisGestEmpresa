@@ -7,7 +7,10 @@ with open("./EjerciciosCSV/LaLiga.csv") as f:
 
 #visualizamos los resultados de todos los partidos
 for resultado in resultados:
-    print(resultado[2])
+    if resultado == resultados[0]:
+        print(resultado[2],":")
+    else:
+        print(resultado[2])
 
 print()
 contL = 0
