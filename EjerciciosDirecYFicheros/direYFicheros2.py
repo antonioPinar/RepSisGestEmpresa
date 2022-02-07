@@ -29,9 +29,9 @@ def crearDicDeFichero():
 #creamos funcion para borrar toda la estructura del directorio creado
 def borrarDirectorio():
     shutil.rmtree("numeros")
+    print("Estructura de directorios borrada con exito")
 
 #ejecutamos 
 print(crearDicDeFichero())
 
 borrarDirectorio()
-print("Estructura de directorios borrada con exito")
