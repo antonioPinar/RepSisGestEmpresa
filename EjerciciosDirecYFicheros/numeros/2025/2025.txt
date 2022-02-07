@@ -1,1 +1,0 @@
-numero=2025,cuadrado=4100625.0,raiz=45.0,cubo=8303765625.0
