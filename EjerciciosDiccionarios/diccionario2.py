@@ -111,10 +111,77 @@ def traducEspFrace():
             txtFinalFrance += numCaracteres
         txtFinalFrance += " "
 
-
     print(f"español-frances:  '{txtEsp}' --> '{txtFinalEsp}'")
     print(f"frances-español:  '{txtFrances}' --> '{txtFinalFrance}'")
 
+
+def traducIngFrance():
+    txtIng = input("Introduce texto en ingles: ")
+    txtFrances = input("Introduce texto en frances: ")
+    txtFinalIng = ""
+    txtFinalFrance = ""
+    encontrado = false
+
+    #convertimos el texto en una lista
+    listIng = txtIng.split(" ")
+    listFrances = txtFrances.split(" ")
+    #recorremos la lista en ingles 
+    for palabra in listIng:
+        palabraAlmn = ""
+        #buscamos si la palabra aparece en el dic esp-ing
+        for clave, valor in traductor.espa_ingles.items():
+            #comprobamos si la palabra se encuentra en el dicc
+            if palabra == valor:
+                #ahora comprobamos si la palabra esta en el dic esp-aleman
+                if clave in traductor.espa_aleman:
+                    palabraAlmn = traductor.espa_aleman[clave]
+                    break
+        #comprobamos si hemos encontrado la palabra que queriamos en aleman
+        if palabraAlmn in traductor.aleman_frances:
+            txtFinalIng += traductor.aleman_frances[palabraAlmn]
+        else:
+            #recorremos la palabra entera para reemplazar el num de caracteres
+            numCaracteres = ""
+            for _ in palabra:
+                numCaracteres += "*"
+            txtFinalIng += numCaracteres
+
+        txtFinalIng += " "
+    
+    #recorremos la lista en frances
+    for palabra in listFrances:
+        palabraEsp = ""
+        encontrado = false
+        #buscamos si la palabra aparece en el dic almn-france
+        for clave, valor in traductor.aleman_frances.items():
+            if palabra == valor:
+                #recorremos el dic esp-almn para encontrar la palabra
+                for clave2, valor2 in traductor.espa_aleman.items():
+                    if clave == valor2:
+                        palabraEsp = clave2
+                        encontrado = true
+                        break
+                    else:
+                        encontrado = false
+            elif encontrado == true:
+                break
+        #ahora comprobamos si la palabra en esp esta en el dic esp-ing
+        if palabraEsp in traductor.espa_ingles:
+            txtFinalFrance += traductor.espa_ingles[palabraEsp]
+        else:
+            #recorremos la palabra entera para reemplazar el num de caracteres
+            numCaracteres = ""
+            for _ in palabra:
+                numCaracteres += "*"
+            txtFinalFrance += numCaracteres
+        
+        txtFinalFrance += " "
+
+
+    print(f"ingles-frances:  '{txtIng}' --> '{txtFinalIng}'")
+    print(f"frances-ingles:  '{txtFrances}' --> '{txtFinalFrance}'")    
+
 #ejecutamos funciones
-#traducEspIng()
+traducEspIng()
 traducEspFrace()
+traducIngFrance()
