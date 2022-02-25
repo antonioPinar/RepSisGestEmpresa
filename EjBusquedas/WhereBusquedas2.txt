@@ -1,0 +1,144 @@
+								EJERCICIO WHERE BUSQUEDAS 2
+									Antonio Pinar
+
+
+1.
+	pruebadb=> select * 
+			from pisos 
+			where (direccion like 'Piso%M_stoles' or direccion like 'Piso%Alcorc_n') and (tamano > 85) and (precio < 180000);
+	
+	-------------
+
+	 id  |                      url                      |                      direccion                       | precio | habitaciones | tamano
+	-----+-----------------------------------------------+------------------------------------------------------+--------+--------------+--------
+	  24 | https://www.idealista.com//inmueble/83243355/ | Piso en Norte - Universidad, Móstoles                | 165000 |            3 |     91
+	 137 | https://www.idealista.com//inmueble/86411690/ | Piso en Centro, Móstoles                             | 145000 |            3 |     86
+	 240 | https://www.idealista.com//inmueble/85864746/ | Piso en paseo de Goya, Norte - Universidad, Móstoles | 160000 |            4 |     95
+	(3 rows)
+	
+
+2.
+
+	pruebadb=> select * 
+			from pisos 
+			where (direccion like 'Piso%') and (direccion not like '%M_stoles' and direccion not like '%Alcorc_n' and direccion not like '%Parla') and (tamano > 85) and (precio < 180000);
+
+	-------------
+	
+
+	 id  |                      url                      |                     direccion                     | precio | habitaciones | tamano
+	-----+-----------------------------------------------+---------------------------------------------------+--------+--------------+--------
+	  54 | https://www.idealista.com//inmueble/88758934/ | Piso en calle de los Angeles, Centro, Fuenlabrada | 118000 |            3 |     96
+	  57 | https://www.idealista.com//inmueble/88714785/ | Piso en Universidad, Getafe                       | 158000 |            4 |     95
+	 120 | https://www.idealista.com//inmueble/86787500/ | Piso en calle Peñuelas, 1, Torrejón de la Calzada | 148000 |            3 |    107
+	 127 | https://www.idealista.com//inmueble/83661738/ | Piso en La Serna, Fuenlabrada                     | 155000 |            3 |     87
+	 130 | https://www.idealista.com//inmueble/87789891/ | Piso en monegros, Zarzaquemada, Leganés           | 169000 |            3 |     88
+	 143 | https://www.idealista.com//inmueble/86497899/ | Piso en Centro, Fuenlabrada                       | 123000 |            3 |     90
+	 170 | https://www.idealista.com//inmueble/88797712/ | Piso en Brezo, Valdemoro                          | 164000 |            2 |     90
+	 221 | https://www.idealista.com//inmueble/88957744/ | Piso en El Naranjo, Fuenlabrada                   | 169000 |            3 |     98
+	 249 | https://www.idealista.com//inmueble/88116212/ | Piso en calle Peñuelas, Torrejón de la Calzada    | 153000 |            3 |    101
+	(9 rows)
+
+3.
+
+	pruebadb=> select * 
+			from pisos 
+			where (direccion like 'Chalet%') and (tamano > 200) and (habitaciones >= 4) and (precio <= 400000)
+		 	order by precio desc;
+
+	-------------
+	
+
+	id  |                      url                      |                                      direccion                                       | precio | habitaciones | tamano	
+ 	-----+-----------------------------------------------+--------------------------------------------------------------------------------------+--------+--------------+--------
+ 	 73 | https://www.idealista.com//inmueble/88428568/ | Chalet pareado en calle CORDOBA, Griñón                                              | 399000 |            5 |    472
+ 	 16 | https://www.idealista.com//inmueble/87205095/ | Chalet adosado en VITORIA, La Serna, Fuenlabrada                                     | 389900 |            4 |    299
+	124 | https://www.idealista.com//inmueble/86991430/ | Chalet adosado en Parla Este, Parla                                                  | 388000 |            4 |    270
+	189 | https://www.idealista.com//inmueble/87536743/ | Chalet en Centro, Valdemoro                                                          | 385000 |            4 |    236
+	115 | https://www.idealista.com//inmueble/87264383/ | Chalet adosado en calle Benito Pérez Galdós, Torrejón de la Calzada                  | 380000 |            5 |    303
+	125 | https://www.idealista.com//inmueble/88838182/ | Chalet pareado en Griñón                                                             | 380000 |            5 |    390
+	241 | https://www.idealista.com//inmueble/88747739/ | Chalet adosado en calle Benito Pérez Galdós, Torrejón de la Calzada                  | 372000 |            6 |    354
+	175 | https://www.idealista.com//inmueble/88507001/ | Chalet en El Soto - Coveta, Móstoles                                                 | 370000 |            5 |    280
+	138 | https://www.idealista.com//inmueble/89138917/ | Chalet adosado en Perales del Rio, Getafe                                            | 369000 |            4 |    290
+ 	 90 | https://www.idealista.com//inmueble/88057108/ | Chalet pareado en IRLANDA, Zona Europa, Arroyomolinos                                | 365000 |            4 |    280
+	155 | https://www.idealista.com//inmueble/88369206/ | Chalet en Altos del Olivar - El Caracol, Valdemoro                                   | 356000 |            6 |    268
+	204 | https://www.idealista.com//inmueble/85833764/ | Chalet en Urbanización Mediterráneo, Arroyomolinos                                   | 349900 |            5 |    295
+	254 | https://www.idealista.com//inmueble/87728972/ | Chalet adosado en calle de Bilbao, Las Dehesillas-Vereda de los Estudiantes, Leganés | 337000 |            4 |    313
+ 	101 | https://www.idealista.com//inmueble/81146222/ | Chalet pareado en peñiscola, 1, Urbanización Mediterráneo, Arroyomolinos             | 335000 |            4 |    216
+ 	 99 | https://www.idealista.com//inmueble/88504735/ | Chalet pareado en acebo, Coimbra - Guadarrama, Móstoles                              | 335000 |            4 |    260
+ 	165 | https://www.idealista.com//inmueble/88945262/ | Chalet en La Ermita, Parla                                                           | 329500 |            5 |    269
+ 	 93 | https://www.idealista.com//inmueble/88450547/ | Chalet en La Cárcaba - El Encinar - Montemolinos, Arroyomolinos                      | 324900 |            4 |    248
+ 	 80 | https://www.idealista.com//inmueble/89024481/ | Chalet adosado en Santoña, Las Castañeras - Bulevar, Arroyomolinos                   | 319900 |            4 |    281
+ 	 69 | https://www.idealista.com//inmueble/87159994/ | Chalet adosado en calle Villa Adriana, Fuenlabrada II - El Molino, Fuenlabrada       | 319000 |            5 |    220
+ 	123 | https://www.idealista.com//inmueble/88690558/ | Chalet adosado en Las Américas, Parla                                                | 317990 |            4 |    206
+ 	145 | https://www.idealista.com//inmueble/89136211/ | Chalet adosado en Urbanización Mediterráneo, Arroyomolinos                           | 310000 |            4 |    255
+ 	163 | https://www.idealista.com//inmueble/88669664/ | Chalet adosado en calle calpe, s/n, Urbanización Mediterráneo, Arroyomolinos         | 309900 |            4 |    334
+ 	 86 | https://www.idealista.com//inmueble/88184437/ | Chalet en Coimbra - Guadarrama, Móstoles                                             | 305000 |            4 |    277
+ 	151 | https://www.idealista.com//inmueble/88927632/ | Chalet en calle las Palomas, Griñón                                                  | 299500 |            4 |    343
+ 	179 | https://www.idealista.com//inmueble/88190300/ | Chalet en Pintores-Ferial, Parla                                                     | 297000 |            6 |    237
+ 	213 | https://www.idealista.com//inmueble/87887338/ | Chalet adosado en calle Manuel Fraga Iribarne, 26, Torrejón de la Calzada            | 296000 |            4 |    253
+ 	214 | https://www.idealista.com//inmueble/87235573/ | Chalet adosado en calle Manuel Fraga Iribarne, 24, Torrejón de la Calzada            | 296000 |            4 |    253
+ 	194 | https://www.idealista.com//inmueble/87194026/ | Chalet en Reyes, Parla                                                               | 295500 |            5 |    261
+ 	248 | https://www.idealista.com//inmueble/88188154/ | Chalet adosado en calle Rosalía de Castro, Torrejón de la Calzada                    | 295500 |            5 |    207
+ 	219 | https://www.idealista.com//inmueble/88993218/ | Chalet pareado en calle Zurbarán, Torrejón de la Calzada                             | 295000 |            4 |    278
+ 	110 | https://www.idealista.com//inmueble/87264185/ | Chalet pareado en calle Granada, Torrejón de la Calzada                              | 290000 |            4 |    265
+ 	  2 | https://www.idealista.com//inmueble/87707905/ | Chalet adosado en calle Lago de Bañolas, Laguna Park, Parla                          | 289900 |            5 |    228
+ 	 97 | https://www.idealista.com//inmueble/86274583/ | Chalet en La Cárcaba - El Encinar - Montemolinos, Arroyomolinos                      | 289000 |            5 |    241
+ 	228 | https://www.idealista.com//inmueble/86528631/ | Chalet adosado en paseo del Arroyo, Coimbra - Guadarrama, Móstoles                   | 288900 |            4 |    208
+ 	206 | https://www.idealista.com//inmueble/89046208/ | Chalet pareado en calle de las Encinas, Coimbra - Guadarrama, Móstoles               | 285000 |            4 |    223
+ 	239 | https://www.idealista.com//inmueble/84423525/ | Chalet en calle Carmen Martin Gaite, Hospital, Valdemoro                             | 280000 |            4 |    338
+ 	160 | https://www.idealista.com//inmueble/89057790/ | Chalet adosado en calle de los fresnos, Coimbra - Guadarrama, Móstoles               | 278000 |            5 |    210
+ 	148 | https://www.idealista.com//inmueble/85680176/ | Chalet en paseo del Arroyo, 34, Coimbra - Guadarrama, Móstoles                       | 277000 |            5 |    270
+ 	184 | https://www.idealista.com//inmueble/87786795/ | Chalet en Altos del Olivar - El Caracol, Valdemoro                                   | 275000 |            4 |    257
+ 	238 | https://www.idealista.com//inmueble/88813127/ | Chalet pareado en calle Zamora, Torrejón de la Calzada                               | 270000 |            5 |    239
+ 	196 | https://www.idealista.com//inmueble/87058559/ | Chalet en Altos del Olivar - El Caracol, Valdemoro                                   | 268000 |            4 |    279
+ 	109 | https://www.idealista.com//inmueble/87484869/ | Chalet adosado en calle Roble, Torrejón de la Calzada                                | 266240 |            4 |    220
+ 	116 | https://www.idealista.com//inmueble/86227182/ | Chalet adosado en paseo del arroyo, Coimbra - Guadarrama, Móstoles                   | 259900 |            5 |    270
+ 	108 | https://www.idealista.com//inmueble/88002821/ | Chalet pareado en calle Zurbarán, Torrejón de la Calzada                             | 248560 |            4 |    233
+ 	 15 | https://www.idealista.com//inmueble/89078278/ | Chalet adosado en avenida del Leguario, Fuentebella-San Felix-El Leguario, Parla     | 245000 |            4 |    208
+ 	245 | https://www.idealista.com//inmueble/88584794/ | Chalet adosado en calle Federico Moreno Torroba, Torrejón de Velasco                 | 245000 |            4 |    204
+ 	187 | https://www.idealista.com//inmueble/87593504/ | Chalet en Cubas de la Sagra                                                          | 243000 |            5 |    225
+ 	195 | https://www.idealista.com//inmueble/87145673/ | Chalet en Cuevas - Ilustración, Ciempozuelos                                         | 239000 |            5 |    273
+ 	 82 | https://www.idealista.com//inmueble/84925377/ | Chalet adosado en calle Río Manzanares, Casarrubuelos                                | 187500 |            4 |    251
+	(49 rows)
+
+4.
+
+	pruebadb=> select * 
+			from pisos 
+			where (tamano >= 100) and (habitaciones = 3) and (precio between 140000 and 190000) order by tamano;
+
+	-------------
+	
+
+	 id  |                      url                      |                               direccion                                | precio | habitaciones | tamano
+	-----+-----------------------------------------------+------------------------------------------------------------------------+--------+--------------+--------
+	   7 | https://www.idealista.com//inmueble/88007706/ | Piso en calle del Olvido, Calle Pinto-San Roque, Parla                 | 154500 |            3 |    100
+	 249 | https://www.idealista.com//inmueble/88116212/ | Piso en calle Peñuelas, Torrejón de la Calzada                         | 153000 |            3 |    101
+	  26 | https://www.idealista.com//inmueble/88996490/ | Piso en calle del Planeta Urano, Parla Este, Parla                     | 174900 |            3 |    104
+	 126 | https://www.idealista.com//inmueble/1043105/  | Piso en Loranca, Fuenlabrada                                           | 189990 |            3 |    105
+	  38 | https://www.idealista.com//inmueble/87806992/ | Piso en calle Carolina Coronado, Centro, Parla                         | 170000 |            3 |    107
+	 120 | https://www.idealista.com//inmueble/86787500/ | Piso en calle Peñuelas, 1, Torrejón de la Calzada                      | 148000 |            3 |    107
+	  36 | https://www.idealista.com//inmueble/88655651/ | Piso en calle Lago Blanco, Laguna Park, Parla                          | 170000 |            3 |    109
+ 	  21 | https://www.idealista.com//inmueble/88919878/ | Piso en avenida de las Estrellas, Parla Este, Parla                    | 169000 |            3 |    110
+	  14 | https://www.idealista.com//inmueble/82554625/ | Dúplex en calle Domingo Malagón, Centro, Parla                         | 174500 |            3 |    130
+	 193 | https://www.idealista.com//inmueble/87442698/ | Piso en Altos del Olivar - El Caracol, Valdemoro                       | 189000 |            3 |    131
+	   9 | https://www.idealista.com//inmueble/86276341/ | Piso en calle Pablo Gargallo, Fuentebella-San Felix-El Leguario, Parla | 164500 |            3 |    153
+	(11 rows)
+
+5.
+
+	pruebadb=> select * 
+			from pisos 
+			where (direccion like'%Ayuntamiento, Pinto') and (tamano >= 100 and tamano <= 180) and (habitaciones >= 3) and (precio < 300000);
+
+
+	-------------
+	
+
+	 id  |                      url                      |              direccion               | precio | habitaciones | tamano
+	-----+-----------------------------------------------+--------------------------------------+--------+--------------+--------
+	 183 | https://www.idealista.com//inmueble/87827979/ | Piso en Centro - Ayuntamiento, Pinto | 290000 |            4 |    118
+	(1 row)	
+
+	
