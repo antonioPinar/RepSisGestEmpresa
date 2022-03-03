@@ -5,10 +5,10 @@ from nbformat import write
 
 def crearPizza(listaPizzas):
     tamanio = 1
-    ingredientes = ["Ternera", "Pollo", "Bacon", "Queso", "Peperoni", "Cebolla"]
 
     while tamanio == 1 or tamanio == 2:
         pizza = {}
+        ingredientes = []
         tamanio = int(input("¿Que tamaño deseas?[Grande/Mediana] -> [1/2]: "))
         if tamanio == 1:
             tamanio = "Grande"
@@ -19,16 +19,12 @@ def crearPizza(listaPizzas):
 
         pizza['Tamano'] = tamanio
 
-        print("Lista de ingredientes:", ingredientes)
-        ing = ingredientes[int(input("Selecciona el primer ingrediente por posicion: ")) - 1]
-        pizza['Ingrediente1'] = ing
-        ing = ingredientes[int(input("Selecciona el segundo ingrediente por posicion: ")) - 1]
-        pizza['Ingrediente2'] = ing
-        ing = ingredientes[int(input("Selecciona el tercer ingrediente por posicion: ")) - 1]
-        pizza['Ingrediente3'] = ing
-        ing = ingredientes[int(input("Selecciona el cuarto ingrediente por posicion: ")) - 1]
-        pizza['Ingrediente4'] = ing
+        #hemos decidido insertar 4 ingredientes por pedido
+        for i in range(4):
+            ing = input(f"Selecciona el ingrediente {i}: ")
+            ingredientes.append(ing)
 
+        pizza['ingredientes'] = ingredientes
         listaPizzas.append(pizza)
         tamanio = int(input("¿Quieres hacer otro pedido?[1-SI/3-NO]: "))
 
@@ -51,7 +47,7 @@ while opcion != 4:
         with open("pizzas.csv", "w") as f:
             for clave, valor in pizzas[0].items():
                 cabecera.append(clave)
-            writer = csv.DictWriter(f, fieldnames = cabecera, extrasaction = 'ignore', lineterminator = "\n")
+            writer = csv.DictWriter(f, fieldnames = cabecera, lineterminator = "\n")
             writer.writeheader()
             for pizza in pizzas:
                 writer.writerow(pizza)
