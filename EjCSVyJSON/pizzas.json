@@ -1,0 +1,30 @@
+[
+     {
+          "Tamano": "Grande",
+          "Ingrediente1": "Ternera",
+          "Ingrediente2": "Pollo",
+          "Ingrediente3": "Bacon",
+          "Ingrediente4": "Queso"
+     },
+     {
+          "Tamano": "Mediana",
+          "Ingrediente1": "Pollo",
+          "Ingrediente2": "Bacon",
+          "Ingrediente3": "Ternera",
+          "Ingrediente4": "Cebolla"
+     },
+     {
+          "Tamano": "Mediana",
+          "Ingrediente1": "Cebolla",
+          "Ingrediente2": "Peperoni",
+          "Ingrediente3": "Queso",
+          "Ingrediente4": "Bacon"
+     },
+     {
+          "Tamano": "Mediana",
+          "Ingrediente1": "Bacon",
+          "Ingrediente2": "Queso",
+          "Ingrediente3": "Pollo",
+          "Ingrediente4": "Peperoni"
+     }
+]
