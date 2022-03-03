@@ -1,5 +1,5 @@
-Tamano,Ingrediente1,Ingrediente2,Ingrediente3,Ingrediente4
-Grande,Ternera,Pollo,Bacon,Queso
-Mediana,Pollo,Bacon,Ternera,Cebolla
-Mediana,Cebolla,Peperoni,Queso,Bacon
-Mediana,Bacon,Queso,Pollo,Peperoni
+Tamano,ingredientes
+Grande,"['Ternera', 'Cebolla', 'Queso', 'Salsa barbacoa']"
+Grande,"['Salsa yogour', 'Pollo', 'Bacon', 'Peperoni']"
+Mediana,"['Cebolla', 'Pimiento', 'Aguacate', 'Tofu']"
+Grande,"['Pollo', 'Bacon', 'Ternera', 'Queso']"

@@ -1,30 +1,38 @@
 [
      {
           "Tamano": "Grande",
-          "Ingrediente1": "Ternera",
-          "Ingrediente2": "Pollo",
-          "Ingrediente3": "Bacon",
-          "Ingrediente4": "Queso"
+          "ingredientes": [
+               "Ternera",
+               "Cebolla",
+               "Queso",
+               "Salsa barbacoa"
+          ]
+     },
+     {
+          "Tamano": "Grande",
+          "ingredientes": [
+               "Salsa yogour",
+               "Pollo",
+               "Bacon",
+               "Peperoni"
+          ]
      },
      {
           "Tamano": "Mediana",
-          "Ingrediente1": "Pollo",
-          "Ingrediente2": "Bacon",
-          "Ingrediente3": "Ternera",
-          "Ingrediente4": "Cebolla"
+          "ingredientes": [
+               "Cebolla",
+               "Pimiento",
+               "Aguacate",
+               "Tofu"
+          ]
      },
      {
-          "Tamano": "Mediana",
-          "Ingrediente1": "Cebolla",
-          "Ingrediente2": "Peperoni",
-          "Ingrediente3": "Queso",
-          "Ingrediente4": "Bacon"
-     },
-     {
-          "Tamano": "Mediana",
-          "Ingrediente1": "Bacon",
-          "Ingrediente2": "Queso",
-          "Ingrediente3": "Pollo",
-          "Ingrediente4": "Peperoni"
+          "Tamano": "Grande",
+          "ingredientes": [
+               "Pollo",
+               "Bacon",
+               "Ternera",
+               "Queso"
+          ]
      }
 ]
